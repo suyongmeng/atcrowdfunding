@@ -66,6 +66,18 @@ public class CrowdExceptionResolver {
         return commonResolve(viewName, exception, request, response);
     }
 
+    @ExceptionHandler(value = Exception.class)
+    public ModelAndView resolveException(
+            Exception exception,
+            HttpServletRequest request,
+            HttpServletResponse response
+    ) throws IOException {
+
+        String viewName = "system-error";
+
+        return commonResolve(viewName, exception, request, response);
+    }
+
     @ExceptionHandler(value = ArithmeticException.class)
     public ModelAndView resolveMathException(
             ArithmeticException exception,

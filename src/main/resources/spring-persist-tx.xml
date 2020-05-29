@@ -10,7 +10,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
 	<!-- 配置自动扫描的包：主要是为了把Service扫描到IOC容器中 -->
-	<context:component-scan base-package="com.sym.crowd.service"/>
+	<context:component-scan base-package="com.sym.crowd.service,com.sym.crowd.config"/>
 
 	<!-- 配置事务管理器 -->
 	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -62,4 +62,6 @@
 
 	</tx:advice>
 
+	<!-- 配置BCryptPasswordEncoder的bean -->
+	<bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
 </beans>
